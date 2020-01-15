@@ -1,14 +1,9 @@
 """ltkinetics is a package for simulating nitrogenase kinetics
 
-It is written in python 3 and depends on numpy and scipy
-
-The plotting examples additionally require:
-    - matplotlib, setup to render with LaTex
-    - a LaTex installation including the upgreek and mhchem packages
-
 The differential equations were adapted from the doctoral thesis of Phillip E.
 Wilson, Brigham Young University, 2005. 
 
+written by:
 Zachary Mathe, doctoral student
 DeBeer Group, Max Planck Institute for Chemical Energy Conversion
 10 January 2020

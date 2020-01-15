@@ -8,8 +8,11 @@ The oridinary differential equations (ODEs) were adapted from the Mathematica co
 
 
 ## Features
+The use of the package is demonstrated with two examples. Follow example 1 first:
+![ex1-result1](examples/ex1-result1.png)
+
 The original LT kinetic constants are used by default, but can be easily modified. 
-The use of the package is demonstrated with two examples. Follow example 1 first. 
+![ex2-result1](examples/ex2-result1.png)
 
 
 ### Disclaimer

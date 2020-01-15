@@ -17,6 +17,11 @@ In example 2, we demonstrate the funciton `set_ks`, which allows the modificatio
 ![ex2-result1](examples/ex2-result1.png)
 
 
+## Requirements
+This package was writte in python 3.7 and may not be compatible with previous versions. 
+The NitrogenaseRxn class depends on NumPy and SciPy. The examples use Matplotlib for plotting. 
+
+
 ### Disclaimer
 This is a work in progress by a non-programmer. All feedback is welcome. 
 

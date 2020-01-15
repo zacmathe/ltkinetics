@@ -17,9 +17,7 @@ DeBeer Group, Max Planck Institute for Chemical Energy Conversion
 
 from time import time
 import numpy as np
-from copy import deepcopy
 from scipy.integrate import odeint
-from types import SimpleNamespace
 
 
 class NitrogenaseRxn:
@@ -134,12 +132,8 @@ class NitrogenaseRxn:
         ODEPACK Fortran solver. 
         """
         time0 = time()
-        self.odeint_args = odeint_args
-        self.listy = deepcopy(list(self.y0.values()))
-        self.listks = deepcopy(list(self.ks.values()))
-        self.tuplistks = (self.listks,)
         self.sol = odeint(self.ltmodel,
-                          self.listy,
+                          list(self.y0.values()),
                           self.t,
                           **odeint_args
                           ).transpose()

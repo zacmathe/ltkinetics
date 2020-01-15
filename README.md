@@ -18,12 +18,12 @@ In example 2, we demonstrate the funciton `set_ks`, which allows the modificatio
 
 
 ## Requirements
-This package was writte in python 3.7 and may not be compatible with previous versions. 
+This package was written in python 3.7 and may not be compatible with previous versions of python. 
 The NitrogenaseRxn class depends on NumPy and SciPy. The examples use Matplotlib for plotting. 
 
 
 ### Disclaimer
-This is a work in progress by a non-programmer. All feedback is welcome. 
+This is a work in progress; feedback is welcome. 
 
 
 ### References

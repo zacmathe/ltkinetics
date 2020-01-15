@@ -70,7 +70,7 @@ for ax in [m2]:
 for ax in [m1, m2]:
     ax.set_xlabel('s')
 for ax in [m1]:
-    ax.set_title('FeMoco ' + str(rxn.initials['MoFe']*1e6) + u'μM'
-                 + ', FeP ' + str(rxn.initials['FeP']*1e6) + u'μM'
+    ax.set_title('FeMoco ' + '{:.0f}'.format(rxn.initials['MoFe']*1e6) + u' μM'
+                 + ', FeP ' + '{:.0f}'.format(rxn.initials['FeP']*1e6) + u' μM'
                  )
 fig.tight_layout()

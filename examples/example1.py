@@ -27,7 +27,6 @@ The following default values will be used for any omitted species:
         'P_H2': 0.0,
         }
 """
-
 initials = {
     'MoFe': 100e-6 * 1.9, # Remember to multiply by # Mo per MoFe dimer
     'FeP': 500e-6,
@@ -82,9 +81,9 @@ for ax in [m1, m2]:
                         linewidth=0,
                         )
 for ax in [m3, m4]:
-    for i, spec in enumerate(specs[:-1]):
+    for i, spec in enumerate(specs[1:]):
         ax.plot(t, spec*1e6, label=labs[i+1],
-                color=zcols[(i)//2], ls=lss[(i+1)%2]
+                color=zcols[(i+1)//2], ls=lss[(i)%2]
                 )
 for ax in [m1, m3]:
     ax.set_xlim(0, tmax/10)
@@ -97,7 +96,7 @@ for ax in [m2, m4]:
 for ax in [m3, m4]:
     ax.set_xlabel('s')
 for ax in [m1]:
-    ax.set_title('FeMoco ' + str(rxn.initials['MoFe']*1e6) + u'μM'
-                 + ', FeP ' + str(rxn.initials['FeP']*1e6) + u'μM'
+    ax.set_title('FeMoco ' + '{:.0f}'.format(rxn.initials['MoFe']*1e6) + u' μM'
+                 + ', FeP ' + '{:.0f}'.format(rxn.initials['FeP']*1e6) + u' μM'
                  )
 fig.tight_layout()

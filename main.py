@@ -9,11 +9,9 @@ The plotting examples additionally require:
 The differential equations were adapted from the doctoral thesis of Phillip E.
 Wilson, Brigham Young University, 2005. 
 
-Written by:
 Zachary Mathe, doctoral student
 DeBeer Group, Max Planck Institute for Chemical Energy Conversion
-
-v0.3 - 10 January 2020
+10 January 2020
 """
 
 
@@ -63,7 +61,7 @@ class NitrogenaseRxn:
             ]
 
 
-    def set_ks(self, ks_custom, temp):
+    def set_ks(self, ks_custom):
         """Change kinetic constants to custom values."""
         self.ks = {**self.ks, **ks_custom}
 
@@ -89,7 +87,7 @@ class NitrogenaseRxn:
 
     def setup_y0(self, initials):
         """Setup y0 given units of atm and M and FePactive ∈ (0,1)."""
-        # Define concentrations using function arguments and physical constants
+        self.initials = initials
         self.y0 = {name: 0.0 for name in self.y_names}
         default_initials = {
             'MoFe': 100e-6,
@@ -101,9 +99,11 @@ class NitrogenaseRxn:
             }
         initials = {**default_initials, **initials}
 
+        # Define gas concentrations using Henry's Law.
         self.y0['N2'] = self.kH_N2 * initials['P_N2']
         self.y0['H2'] = self.kH_H2 * initials['P_H2']
 
+        # Define initial dithionite dissociation equilibrium.
         k6 = self.ks['k6']
         km6 = self.ks['km6']
         DT = initials['DT']
@@ -111,6 +111,7 @@ class NitrogenaseRxn:
                                  + 4*km6/k6*DT))/2)
         self.y0['SO2'] = (-1*km6/k6 + np.sqrt((km6/k6)**2 + 4*km6/k6*DT))
 
+        # Define initial iron protein concentrations.
         self.y0['E0'] = initials['MoFe']
         self.y0['TF1'] = initials['FeP'] * initials['FePactive']
         self.y0['Fi'] = initials['FeP'] * (1 - initials['FePactive'])
@@ -125,7 +126,13 @@ class NitrogenaseRxn:
                   odeint_args={'atol':1e-10, 'rtol':1e-10},
                   verbose=True
                   ):
-        """Integrate with odeint. Must run setup_y0() and setyp_t() first."""
+        """Integrate with odeint, having run setup_y0() and setyp_t() first.
+
+        As of January 2020, the SciPy docs recommend using solve_ivp 
+        instead of odeint. However, I have found that odeint is up to 200x 
+        faster, despite the fact that both functions seem to call the same
+        ODEPACK Fortran solver. 
+        """
         time0 = time()
         self.odeint_args = odeint_args
         self.listy = deepcopy(list(self.y0.values()))
@@ -374,30 +381,3 @@ class NitrogenaseRxn:
                       + y['NE4'] + y['NE4Fi'] + y['NE4DF0']
                       + y['NE4TF1'] + y['NE34eDF0'])
         self.AQ = AQ
-
-
-def print_Econcs(rxn, times, species):
-    """Pretty print concentrations of a list of species at times"""
-    for time in times:
-        print('\n--at', time, ' sec--')
-        tidx = abs(rxn.t - time).argmin()
-        for spec in species:
-            print('{:2.0f}'.format(rxn.E[spec][tidx]*1e6), spec)
-
-
-def plot_concs(rxn, times, species, figname=''):
-    """Plot species at two different time ranges in two different styles"""
-    fig = plt.figure(figname)
-    fig.clear()
-    m1 = fig.add_subplot(221)
-    m2 = fig.add_subplot(222)
-    m3 = fig.add_subplot(223)
-    m4 = fig.add_subplot(224)
-
-    specs = ([np.zeros_like(rxn.t)]
-             + [rxn.
-             E.E0t, y.E0eDF0,
-             E.E1t, y.HE1eDF0,
-             E.E2t, y.HE2eDF0,
-             E.E3t, y.HE3eDF0,
-             E.E4t])

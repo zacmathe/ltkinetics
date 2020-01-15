@@ -9,10 +9,11 @@ The oridinary differential equations (ODEs) were adapted from the Mathematica co
 
 ## Features
 The use of the package is demonstrated with two examples. 
-In example 1, we integrate a high-flux reaction until the steady state is reached and plot the results both traditionally and stacked. 
+
+In example 1, we integrate a high-flux reaction until the steady state is reached and plot the results both traditionally and stacked:
 ![ex1-result1](examples/ex1-result1.png)
 
-In example 2, we demonstrate the funciton `set_ks`, which allows the modification of the default LT kinetic constants. 
+In example 2, we demonstrate the funciton `set_ks`, which allows the modification of the default LT kinetic constants:
 ![ex2-result1](examples/ex2-result1.png)
 
 

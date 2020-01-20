@@ -2,7 +2,7 @@
 A python package for simulating the kinetics of the nitrogenase enzyme system, following the work of Thorneley & Lowe. 
 
 Each reaction is an instance of the NitrogenaseRxn class. 
-The user sets up the starting conditions and SciPy `odeint` (LSODA under the hood) numerically integrates the system forward in time. 
+The user sets up the starting conditions and SciPy's `odeint` (LSODA under the hood) numerically integrates the system forward in time. 
 The oridinary differential equations (ODEs) were adapted from the Mathematica code in the doctoral thesis of Phillip E. Wilson (1).
 
 This package was written by Zachary Mathe, doctoral student in the [DeBeer Group](https://cec.mpg.de/1/research/1087/prof-dr-serena-debeer/). 
@@ -30,16 +30,16 @@ In example 1, we integrate a high-flux reaction until the steady state is reache
 In example 2, we demonstrate the funciton `set_ks`, which allows the modification of the default LT kinetic constants:
 ![ex2-result1](examples/ex2-result1.png)
 
-In example 3, we do the same thing as example 1, but separate still-bound MoFe(red)•FeP(ox,ADP) species
+In example 3, we do the same thing as example 1, but separate still-bound MoFe(red)•FeP(ox,ADP) species:
 ![ex3-result1](examples/ex3-result1.png)
 
 
 ## Requirements
-This package was written in python 3.7 and may not be compatible with previous versions of python. Your python version can be checked with `python3 --version`
+ltkinetics was written in python 3.7 and may not be compatible with previous versions of python. Your python version can be checked with `python3 --version`.
 
-The package depends on NumPy and SciPy. The examples additionally use Matplotlib for plotting. 
+This package depends on the NumPy and SciPy libraries. The examples additionally use Matplotlib for plotting. 
 
-If you have not yet set up a python environment with NumPy and SciPy, this is easily accomplished on most platforms using [anaconda](https://docs.anaconda.com/anaconda/install/)
+If you have not yet set up a python environment with NumPy and SciPy, this is easily accomplished on most platforms using [anaconda](https://docs.anaconda.com/anaconda/install/).
 
 
 ### Disclaimer

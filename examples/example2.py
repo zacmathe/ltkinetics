@@ -47,30 +47,20 @@ lss = ['-', '--']
 zcols = ['#5C5C5B', '#e50000', '#128BD8', '#B2C700', '#9a0eea']
 for i, rxn in enumerate(rxns):
     t, E, y = rxn.t, rxn.E, rxn.y
-    specs = [
-        E['E0'], 
-        E['E1'] + y['E0eDF0'],
-        E['E2'] + y['HE1eDF0'],
-        E['E3'] + y['HE2eDF0'],
-        E['E4'] + y['HE3eDF0'],
-        ]
+    specs = [E['E0'], E['E1'], E['E2'], E['E3'], E['E4']]
     for ax in [m1, m2]:
         for j, spec in enumerate(specs):
-            print(i, j)
             ax.plot(rxn.t, spec*1e6, c=zcols[j], ls=lss[i],
                     label=labs[j]+suffixes[i])
-for ax in [m1]:
-    ax.set_xlim(0, tmax/10)
-    ax.set_ylabel(u'μM')
-for ax in [m2]:
-    ax.legend(frameon=True, ncol=2, loc=1, fontsize=12)
-for ax in [m2]:
-    ax.set_xlim(0, tmax)
-    # ax.set_ylim(-10e-0, 200e-0)
-for ax in [m1, m2]:
-    ax.set_xlabel('s')
 for ax in [m1]:
     ax.set_title('FeMoco ' + '{:.0f}'.format(rxn.initials['MoFe']*1e6) + u' μM'
                  + ', FeP ' + '{:.0f}'.format(rxn.initials['FeP']*1e6) + u' μM'
                  )
+    ax.set_xlim(0, tmax/10)
+    ax.set_ylabel(u'μM')
+for ax in [m2]:
+    ax.legend(frameon=True, ncol=2, loc=1, fontsize=12)
+    ax.set_xlim(0, tmax)
+for ax in [m1, m2]:
+    ax.set_xlabel('s')
 fig.tight_layout()

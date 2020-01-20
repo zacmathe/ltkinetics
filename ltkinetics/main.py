@@ -11,6 +11,7 @@ DeBeer Group, Max Planck Institute for Chemical Energy Conversion
 
 
 from time import time
+from copy import deepcopy
 import numpy as np
 from scipy.integrate import odeint
 
@@ -335,22 +336,45 @@ class NitrogenaseRxn:
 
 
     def unpack_sol(self, sol):
-        """Return all species, composite E states and acid quench products"""
+        """Return all species, composite E states and acid quench products
+
+        'Enoe' is a dictionary of binned E states for which MoFe:FeP complexes
+        E(n)eDF0 have been excluded. These are species in which the electron
+        transfers have all occurred, but, according to older literature, the 
+        accompanying proton has not yet arrived at FeMoco). 
+
+        'E' is a dictionary of binned E states, for which the MoFe:FeP
+        complexes E(n)eDF0 are binned into the subsequent E(n+1) states.
+        """
         y = dict(zip(self.y_names, sol))
         self.y = y
 
-        E = {}
-        E['E0'] = y['E0'] + y['E0Fi'] + y['E0DF0'] + y['E0TF1']
-        E['E1'] = y['HE1'] + y['HE1Fi'] + y['HE1DF0'] + y['HE1TF1']
-        E['E2'] = y['HE2'] + y['HE2Fi'] + y['HE2DF0'] + y['HE2TF1']
-        E['E3'] = y['HE3'] + y['HE3Fi'] + y['HE3DF0'] + y['HE3TF1']
-        E['E4'] = y['HE4'] + y['HE4Fi'] + y['HE4DF0']
-        E['NE3'] = y['NE3'] + y['NE3Fi'] + y['NE3DF0'] + y['NE3TF1']
-        E['NE34'] = y['NE34'] + y['NE34Fi'] + y['NE34DF0'] + y['NE34TF1']
-        E['NE4'] = y['NE4'] + y['NE4Fi'] + y['NE4DF0'] + y['NE4TF1']
-        E['NE5'] = y['NE5'] + y['NE5Fi'] + y['NE5DF0'] + y['NE5TF1']
-        E['NE6'] = y['NE6'] + y['NE6Fi'] + y['NE6DF0'] + y['NE6TF1']
-        E['NE7'] = y['NE7'] + y['NE7Fi'] + y['NE7DF0'] + y['NE7TF1']
+        Enoe = {}
+        Enoe['E0'] = y['E0'] + y['E0Fi'] + y['E0DF0'] + y['E0TF1']
+        Enoe['E1'] = y['HE1'] + y['HE1Fi'] + y['HE1DF0'] + y['HE1TF1']
+        Enoe['E2'] = y['HE2'] + y['HE2Fi'] + y['HE2DF0'] + y['HE2TF1']
+        Enoe['E3'] = y['HE3'] + y['HE3Fi'] + y['HE3DF0'] + y['HE3TF1']
+        Enoe['E4'] = y['HE4'] + y['HE4Fi'] + y['HE4DF0']
+        Enoe['NE3'] = y['NE3'] + y['NE3Fi'] + y['NE3DF0'] + y['NE3TF1']
+        Enoe['NE34'] = y['NE34'] + y['NE34Fi'] + y['NE34DF0'] + y['NE34TF1']
+        Enoe['NE4'] = y['NE4'] + y['NE4Fi'] + y['NE4DF0'] + y['NE4TF1']
+        Enoe['NE5'] = y['NE5'] + y['NE5Fi'] + y['NE5DF0'] + y['NE5TF1']
+        Enoe['NE6'] = y['NE6'] + y['NE6Fi'] + y['NE6DF0'] + y['NE6TF1']
+        Enoe['NE7'] = y['NE7'] + y['NE7Fi'] + y['NE7DF0'] + y['NE7TF1']
+        self.Enoe = Enoe
+
+        E = deepcopy(Enoe)
+        # E['E0']
+        E['E1'] += y['E0eDF0']
+        E['E2'] += y['HE1eDF0']
+        E['E3'] += y['HE2eDF0']
+        E['E4'] += y['HE3eDF0']
+        # E['NE3'] += 
+        E['NE34'] += y['NE3eDF0']
+        # E['NE4'] += 
+        E['NE5'] += y['NE34eDF0'] + y['NE34eDF0']
+        E['NE6'] += y['NE5eDF0']
+        E['NE7'] += y['NE6eDF0']
         self.E = E
 
         AQ = {}

@@ -10,14 +10,14 @@ The oridinary differential equations (ODEs) were adapted from the Mathematica co
 ## Usage
 ltkinetics can be run easily from the terminal using the provided ltscript.py, or imported as a regular python package. The latter option is required to access all features. 
 
-### Via ltscript.py
+### Via ltscript.py:
 1. Open ltscript.py in a text editor and provide starting conditions.
 2. Run the script using e.g. `./ltscript.py`. The script must remain in the same directory as the ltkinetics folder. 
 3. Open the `-E-pops.dat` file in any plotting program.
 
-### As a python package
+### As a python package:
 1. Open example1.py in your IDE of choice.
-2. Make sure the folder `ltkinetics` in the current working directory (or add it to your `PYTHONPATH`.
+2. Make sure the folder `ltkinetics` in the current working directory (or add it to your `PYTHONPATH`).
 
 
 ## Features

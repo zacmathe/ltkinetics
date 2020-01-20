@@ -1,20 +1,22 @@
 # ltkinetics
-A python package for simulating the kinetics of the nitrogenase enzyme system, following the work of Thorneley and Lowe. 
+A python package for simulating the kinetics of the nitrogenase enzyme system, following the work of Thorneley & Lowe. 
 
 Each reaction is an instance of the NitrogenaseRxn class. 
 The user sets up the starting conditions and SciPy `odeint` (LSODA under the hood) numerically integrates the system forward in time. 
 The oridinary differential equations (ODEs) were adapted from the Mathematica code in the doctoral thesis of Phillip E. Wilson (1).
 
+This package was written by Zachary Mathe, doctoral student in the [DeBeer Group](https://cec.mpg.de/1/research/1087/prof-dr-serena-debeer/). 
+
 
 ## Usage
 ltkinetics can be run easily from the terminal using the provided ltscript.py, or imported as a regular python package. The latter option is required to access all features. 
 
-### Via ltscript.py:
+#### With ltscript.py:
 1. Open ltscript.py in a text editor and provide starting conditions.
 2. Run the script using e.g. `./ltscript.py`. The script must remain in the same directory as the ltkinetics folder. 
-3. Open the `-E-pops.dat` file in any plotting program.
+3. Open the `*-E-pops.dat` file in any plotting program.
 
-### As a python package:
+#### As a python package:
 1. Open example1.py in your IDE of choice.
 2. Make sure the folder `ltkinetics` in the current working directory (or add it to your `PYTHONPATH`).
 
@@ -41,7 +43,7 @@ If you have not yet set up a python environment with NumPy and SciPy, this is ea
 
 
 ### Disclaimer
-This is a work in progress; feedback is welcome. 
+This is a work in progress, and I encourage any user to read through `main.py` before relying on its results. All feedback is welcome. 
 
 
 ### References

@@ -1,6 +1,5 @@
 # ltkinetics
-Python code for simulating the kinetics of the nitrogenase enzyme system,
-following the work of Thorneley and Lowe. 
+A python package for simulating the kinetics of the nitrogenase enzyme system, following the work of Thorneley and Lowe. 
 
 Each reaction is an instance of the NitrogenaseRxn class. 
 The user sets up the starting conditions and SciPy `odeint` (LSODA under the hood) numerically integrates the system forward in time. 

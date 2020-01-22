@@ -37,7 +37,7 @@ ltkinetics was written in python 3.7 and may not be compatible with previous ver
 
 This package depends on the NumPy and SciPy libraries. The examples additionally use Matplotlib for plotting. 
 
-If you have not yet set up a python environment with NumPy and SciPy, this is easily accomplished on most platforms using [anaconda](https://docs.anaconda.com/anaconda/install/).
+If you have not yet set up a python environment with NumPy and SciPy, this can be easily accomplished on most platforms using [anaconda](https://docs.anaconda.com/anaconda/install/). Anaconda also includes Spyder, a good IDE for scientific python.
 
 
 ### About

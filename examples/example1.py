@@ -1,4 +1,4 @@
-"""Example 1 using ltkinetics.py: plotting high-flux E1 through E4
+"""Example 1: plotting high-flux E1 through E4 (heavily commented)
 
 
 Zachary Mathe, doctoral student

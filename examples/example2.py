@@ -1,4 +1,4 @@
-"""Example 2 using ltkinetics.py: test the effect of reducing k7 in low flux
+"""Example 2: test the effect of reducing k7
 
 Zachary Mathe, doctoral student
 DeBeer Group, Max Planck Institute for Chemical Energy Conversion
@@ -12,12 +12,12 @@ import matplotlib.pyplot as plt
 import ltkinetics as lt
 
 
-"""Initialize reactions from the NitrogenaseRxn class"""
+# Initialize reactions from the NitrogenaseRxn class
 classical = lt.NitrogenaseRxn()
 slowerk7 = lt.NitrogenaseRxn()
 rxns = [classical, slowerk7]
 
-"""Setup initials and time points"""
+# Setup initials and time points
 initials = {
     'MoFe': 100e-6 * 1.9, # Remember to multiply by number of Mo per MoFe dimer
     'FeP': 300e-6,
@@ -26,17 +26,17 @@ initials = {
 tmax = 3
 for rxn in rxns:
     rxn.setup_y0(initials)
-    rxn.setup_t(np.linspace(0, tmax, 100000))
+    rxn.setup_t(np.linspace(0, tmax, 10000))
 
-"""Use set_ks to provide a dictionary of custom kinetic constants"""
+# Use set_ks to provide a dictionary of custom kinetic constants
 custom_ks = {'k7': 100} # The classical/default value is 200
 slowerk7.set_ks(custom_ks)
 
-"""Run the integrations"""
+# Run the integrations
 for rxn in rxns:
     rxn.integrate()
 
-"""Plot four En states, with species E(n-1)eDF0 included"""
+# Plot four En states
 fig = plt.figure('changing k7')
 fig.clear()
 m1 = fig.add_subplot(121)

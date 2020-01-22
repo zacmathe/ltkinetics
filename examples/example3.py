@@ -1,4 +1,4 @@
-"""Example 3 using ltkinetics.py: plotting high-flux E1 through E4, with the
+"""Example 3: plotting high-flux E1 through E4, with the
 still-bound MoFe•FeP species separate
 
 Zachary Mathe, doctoral student
@@ -13,45 +13,21 @@ import matplotlib.pyplot as plt
 import ltkinetics as lt
 
 
-"""initialize reactions from the NitrogenaseRxn class"""
+# Initialize reactions from the NitrogenaseRxn class
 highflux = lt.NitrogenaseRxn()
 
-"""Make a dictionary of initial protein concentrations (M), gas pressures
-(atm) and the amount of active iron protein relative to the total.
-The following default values will be used for any omitted species:
-    initials = {
-        'MoFe': 100e-6,
-        'FeP': 100e-6,
-        'DT': 10e-3,
-        'FePactive': 0.45,
-        'P_N2': 0.0,
-        'P_H2': 0.0,
-        }
-"""
+# Setup initials and time points
 initials = {
     'MoFe': 100e-6 * 1.9, # Remember to multiply by # Mo per MoFe dimer
     'FeP': 500e-6,
     'DT': 50e-3,
     }
 highflux.setup_y0(initials)
-
-"""Provide a monotonic array of time points. Numpy's linspace() is easy.""" 
 tmax = 4
 highflux.setup_t(np.linspace(0, tmax, 100000))
 
-"""Run the integration, automatically followed by unpack_sol. unpack_sol
-creates two attributes to the reaction: Enoe and E:
-    * 'Enoe' is a dictionary of binned E states for which MoFe•FeP complexes
-    E(n)eDF0 have been excluded. These are species in which the electron
-    transfers have all occurred, but, according to older literature, the 
-    accompanying proton has not yet arrived at FeMoco). 
-    * 'E' is a dictionary of binned E states, for which the MoFe•FeP
-    complexes E(n)eDF0 are binned into the subsequent E(n+1) states. 
-"""
+# Run the integration
 highflux.integrate()
-
-"""Print a list of E state concentrations at a list of times."""
-lt.print_Econcs(highflux, [0.05, 1], ['E0', 'E1', 'E2'])
 
 """Plot the four E states, with the species EneDF0 separate. 
 Following Wilson's nomenclature, we assume that MoFe reduction requires

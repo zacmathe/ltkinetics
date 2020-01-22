@@ -20,7 +20,7 @@ ltkinetics can be run easily from the terminal using the provided ltscript.py, o
 
 
 ## Features
-The use of the package is demonstrated with three examples. 
+The use of the package is demonstrated with three examples. I recommend starting with example 1, which is more thoroughly commented.
 
 In example 1, we integrate a high-flux reaction until the steady state is reached and plot the results both traditionally and stacked:
 ![ex1-result1](examples/ex1-result1.png)
@@ -41,7 +41,9 @@ If you have not yet set up a python environment with NumPy and SciPy, this is ea
 
 
 ### About
-This package was written by Zachary Mathe, doctoral student in the [DeBeer Group](https://cec.mpg.de/1/research/1087/prof-dr-serena-debeer/). It is a work in progress and feedback is welcome. I strongly encourage users to read through `main.py` and the equations therein for themselves.
+ltkinetics was written by Zachary Mathe, doctoral student in the [DeBeer Group](https://cec.mpg.de/1/research/1087/prof-dr-serena-debeer/). 
+
+This is a work in progress and feedback is welcome. Though I verified the implimentation by duplicating figures from Wilson's thesis (see example4.py), users are encouraged to read through main.py and the equations therein. 
 
 In the future, this package will be associated with either a Zenodo DOI or a peer-reviewed publication. If you use this package in your own work, please check back here for something to cite.
 

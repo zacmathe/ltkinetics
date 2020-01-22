@@ -7,7 +7,7 @@ The oridinary differential equations (ODEs) were adapted from the Mathematica co
 
 
 ## Usage
-ltkinetics can be run easily from the terminal using the provided ltscript.py, or imported as a regular python package. The latter option is required to access all features. 
+ltkinetics can be run easily from the terminal using the provided `ltscript.py`, or imported as a regular python package. The latter option is required to access all features. 
 
 #### With ltscript.py:
 1. Open ltscript.py in a text editor and provide starting conditions.
@@ -15,8 +15,8 @@ ltkinetics can be run easily from the terminal using the provided ltscript.py, o
 3. Open the `*-E-pops.dat` file in any plotting program.
 
 #### As a python package:
-1. Run `pip install git+https://github.com/zacmathe/ltkinetics` (or put `ltkinetics` in your working directory, or add it to your `PYTHONPATH`). 
-2. Open example1.py in your IDE of choice.
+1. Run `pip install git+https://github.com/zacmathe/ltkinetics` (or put `ltkinetics` in your current working directory, or add it to your `PYTHONPATH`). It can be updated later using the same command.
+2. Open example1.py in an IDE. 
 
 
 ## Features
@@ -43,7 +43,7 @@ If you have not yet set up a python environment with NumPy and SciPy, this is ea
 ### About
 ltkinetics was written by Zachary Mathe, doctoral student in the [DeBeer Group](https://cec.mpg.de/1/research/1087/prof-dr-serena-debeer/). 
 
-This is a work in progress and feedback is welcome. Though I verified the implimentation by duplicating figures from Wilson's thesis (see example 4), users are encouraged to read through main.py and the equations therein. In the future, I may add functionality for reoptimizing kinetic constants and/or starting conditions against experimental data.
+This is a work in progress and feedback is welcome. Though I verified the implimentation by duplicating figures from Wilson's thesis (see example 4), users are encouraged to read through `main.py` and the equations therein. In the future, I may add functionality for reoptimizing kinetic constants and/or starting conditions against experimental data.
 
 In the future, this package will be associated with either a Zenodo DOI or a peer-reviewed publication. If you use this package in your own work, please check back here for something to cite.
 

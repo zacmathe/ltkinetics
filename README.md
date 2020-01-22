@@ -43,7 +43,7 @@ If you have not yet set up a python environment with NumPy and SciPy, this is ea
 ### About
 ltkinetics was written by Zachary Mathe, doctoral student in the [DeBeer Group](https://cec.mpg.de/1/research/1087/prof-dr-serena-debeer/). 
 
-This is a work in progress and feedback is welcome. Though I verified the implimentation by duplicating figures from Wilson's thesis (see example 4), users are encouraged to read through main.py and the equations therein. 
+This is a work in progress and feedback is welcome. Though I verified the implimentation by duplicating figures from Wilson's thesis (see example 4), users are encouraged to read through main.py and the equations therein. In the future, I may add functionality for reoptimizing kinetic constants and/or starting conditions against experimental data.
 
 In the future, this package will be associated with either a Zenodo DOI or a peer-reviewed publication. If you use this package in your own work, please check back here for something to cite.
 

@@ -118,7 +118,7 @@ class NitrogenaseRxn:
 
     def integrate(self,
                   odeint_args={'atol':1e-10, 'rtol':1e-10},
-                  verbose=True
+                  verbose=True, unpack=True,
                   ):
         """Integrate with odeint, having run setup_y0() and setyp_t() first.
 
@@ -127,7 +127,8 @@ class NitrogenaseRxn:
         faster, despite the fact that both functions seem to call the same
         ODEPACK Fortran solver. 
         """
-        time0 = time()
+        if verbose:
+            time0 = time()
         self.sol = odeint(self.ltmodel,
                           list(self.y0.values()),
                           self.t,
@@ -136,7 +137,8 @@ class NitrogenaseRxn:
         if verbose:
             clock = time() - time0
             print('**integrated in '+'{:.3f}'.format(clock)+' seconds**')
-        self.unpack_sol(self.sol)
+        if unpack:
+            self.unpack_sol(self.sol)
 
 
     def ltmodel(self, y, t):

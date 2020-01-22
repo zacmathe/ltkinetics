@@ -2,10 +2,8 @@
 A python package for simulating the kinetics of the nitrogenase enzyme system, following the work of Thorneley & Lowe. 
 
 Each reaction is an instance of the NitrogenaseRxn class. 
-The user sets up the starting conditions and SciPy's `odeint` (LSODA under the hood) numerically integrates the system forward in time. 
+The user sets up the starting conditions and SciPy's [odeint](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html) numerically integrates the system forward in time. 
 The oridinary differential equations (ODEs) were adapted from the Mathematica code in the doctoral thesis of Phillip E. Wilson (1).
-
-This package was written by Zachary Mathe, doctoral student in the [DeBeer Group](https://cec.mpg.de/1/research/1087/prof-dr-serena-debeer/). 
 
 
 ## Usage
@@ -42,8 +40,10 @@ This package depends on the NumPy and SciPy libraries. The examples additionally
 If you have not yet set up a python environment with NumPy and SciPy, this is easily accomplished on most platforms using [anaconda](https://docs.anaconda.com/anaconda/install/).
 
 
-### Disclaimer
-This is a work in progress, and I encourage any user to read through `main.py` before relying on its results. All feedback is welcome. 
+### About
+This package was written by Zachary Mathe, doctoral student in the [DeBeer Group](https://cec.mpg.de/1/research/1087/prof-dr-serena-debeer/). It is a work in progress and feedback is welcome. I strongly encourage users to read through `main.py` and the equations therein for themselves.
+
+In the future, this package will be associated with either a Zenodo DOI or a peer-reviewed publication. If you use this package in your own work, please check back here for something to cite.
 
 
 ### References

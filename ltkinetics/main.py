@@ -136,7 +136,7 @@ class NitrogenaseRxn:
                           ).transpose()
         if verbose:
             clock = time() - time0
-            print('**integrated in '+'{:.3f}'.format(clock)+' seconds**')
+            print('\n**integrated in '+'{:.3f}'.format(clock)+' seconds**')
         if unpack:
             self.unpack_sol(self.sol)
 

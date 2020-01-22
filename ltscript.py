@@ -73,9 +73,9 @@ custom_ks = {
 ##    Run sim & write output    ##
 ##################################
 print('\n######## ltkinetics script run ########')
-print('\n**initial conditions**')
+print('\nInitial conditions:')
 pp.pprint(initials)
-print('\n**LT kinetic constants**')
+print('\nLT kinetic constants:')
 pp.pprint(custom_ks)
 # print('\n')
 
@@ -89,5 +89,5 @@ data = np.array(r.t)
 for E in r.E.values():
     data = np.column_stack((data, E))
 np.savetxt(filename, data, fmt='%4.12e')
-print('\n**output has been written to**\n', filename)
+print('\nOutput has been written to:\n', filename)
 print('\n**ltkinetics script run finished**')

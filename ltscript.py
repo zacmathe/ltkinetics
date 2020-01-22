@@ -77,7 +77,6 @@ print('\nInitial conditions:')
 pp.pprint(initials)
 print('\nLT kinetic constants:')
 pp.pprint(custom_ks)
-# print('\n')
 
 r = lt.NitrogenaseRxn()
 r.setup_y0(initials)

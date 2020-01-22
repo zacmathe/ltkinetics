@@ -15,8 +15,8 @@ ltkinetics can be run easily from the terminal using the provided ltscript.py, o
 3. Open the `*-E-pops.dat` file in any plotting program.
 
 #### As a python package:
-1. Open example1.py in your IDE of choice.
-2. Make sure the folder `ltkinetics` in the current working directory (or add it to your `PYTHONPATH`).
+1. Run `pip install git+https://github.com/zacmathe/ltkinetics` (or put `ltkinetics` in your working directory, or add it to your `PYTHONPATH`). 
+2. Open example1.py in your IDE of choice.
 
 
 ## Features

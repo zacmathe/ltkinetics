@@ -118,7 +118,7 @@ class NitrogenaseRxn:
 
     def integrate(self,
                   odeint_args={'atol':1e-10, 'rtol':1e-10},
-                  verbose=True, unpack=True,
+                  model=self.ltmodel, verbose=True, unpack=True,
                   ):
         """Integrate with odeint, having run setup_y0() and setyp_t() first.
 
@@ -129,7 +129,7 @@ class NitrogenaseRxn:
         """
         if verbose:
             time0 = time()
-        self.sol = odeint(self.ltmodel,
+        self.sol = odeint(model,
                           list(self.y0.values()),
                           self.t,
                           **odeint_args
